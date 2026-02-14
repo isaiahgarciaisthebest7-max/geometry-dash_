@@ -1,0 +1,136 @@
+:root {
+    --gd-blue: #0066ff;
+    --gd-green: #00ff40;
+}
+
+body {
+    margin: 0;
+    background-color: #050505;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    overflow: hidden;
+    user-select: none;
+}
+
+#game-container {
+    position: relative;
+    width: 1280px;
+    height: 640px;
+    background-color: #000;
+    border: 4px solid #333;
+    overflow: hidden;
+    box-shadow: 0 0 50px rgba(0,0,0,0.8);
+}
+
+canvas {
+    display: block;
+}
+
+/* --- HUD --- */
+#hud {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    display: none; /* Shown via JS */
+}
+
+.hud-top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 15px;
+}
+
+.progress-bar {
+    width: 500px;
+    height: 10px;
+    background: rgba(0,0,0,0.6);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 5px;
+    position: relative;
+}
+
+#progress-fill {
+    width: 0%;
+    height: 100%;
+    background: var(--gd-green);
+    box-shadow: 0 0 10px var(--gd-green);
+}
+
+#percent-text {
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 5px;
+    text-shadow: 2px 2px #000;
+}
+
+#attempt-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 52px;
+    font-weight: 900;
+    text-shadow: 4px 4px #000;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+/* --- MENU --- */
+#menu {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.9);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.title {
+    color: white;
+    font-size: 72px;
+    margin-bottom: 40px;
+    text-shadow: 0 0 20px var(--gd-blue);
+}
+
+.btn-list {
+    display: flex;
+    gap: 20px;
+}
+
+.lvl-card {
+    background: #111;
+    border: 2px solid #444;
+    color: white;
+    padding: 30px;
+    width: 250px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 12px;
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.lvl-card:hover {
+    transform: scale(1.05);
+    border-color: var(--gd-green);
+    background: #1a1a1a;
+}
+
+#flash {
+    position: absolute;
+    inset: 0;
+    background: white;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 100;
+}
